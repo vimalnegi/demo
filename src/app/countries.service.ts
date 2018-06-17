@@ -3,15 +3,22 @@ import { ApiService } from "./api-service.service";
 import { map, count } from "rxjs/operators";
 import "rxjs/add/operator/map";
 import { Observable } from "rxjs/Observable";
+import { StorageService } from "./storage.service";
 
 const API = Object.freeze({
   all: "http://countryapi.gear.host/v1/Country/getCountries"
 });
+const string = Object.freeze({
+  HISTORY_KEY: 'history',
+})
 @Injectable()
 export class CountriesService {
   history: any = [];
   countries: any = countryApiFakeData.Response;
-  constructor(private apiService: ApiService) {}
+  constructor(
+    private apiService: ApiService,
+    private storage: StorageService,
+  ) {}
 
   insertIntoHistort(selectedCountry){
     const index = this.history.findIndex(country => country.NumericCode == selectedCountry.NumericCode);
@@ -19,11 +26,20 @@ export class CountriesService {
       this.history.splice(index, 1);
     }
     this.history.push(selectedCountry);
+    this.storage.setKey(string.HISTORY_KEY, this.history);
   }
 
   getHistory(){
+    if(this.history.length){
+      return this.history;
+    }
+    let historyLocalStorage = this.storage.get(string.HISTORY_KEY);
+    if(historyLocalStorage) {
+      this.history = historyLocalStorage;
+    }
     return this.history;
   }
+
   search(keyword: string){
     keyword = keyword.toLowerCase();
     return this.getCountries().map(countries => {

@@ -15,6 +15,7 @@ import { CountriesService } from './countries.service';
 import { ApiService } from './api-service.service';
 import { CountryDetailsComponent } from './country-details/country-details.component';
 import { SearchHistoryComponent } from './search-history/search-history.component';
+import { StorageService } from './storage.service';
 
 
 @NgModule({
@@ -33,7 +34,7 @@ import { SearchHistoryComponent } from './search-history/search-history.componen
     MaterialAppModule,
     AppRoutingModule,
   ],
-  providers: [CountriesService, ApiService],
+  providers: [CountriesService, ApiService, StorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

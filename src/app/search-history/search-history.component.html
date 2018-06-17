@@ -1,3 +1,9 @@
 <mat-list>
-    <mat-list-item *ngFor="let country of history">{{country.Name}}</mat-list-item>
+    <mat-list-item *ngFor="let country of history" (click)="openCountry(country.NumericCode)">
+      <img matListAvatar [src]="country.Flag" alt="flag">
+      <h3 matLine> {{country.Name}} </h3>
+      <p matLine>
+        <span> {{country.CurrencyCode}} </span>
+      </p>
+    </mat-list-item>
   </mat-list>

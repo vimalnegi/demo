@@ -9,6 +9,9 @@ const  routes: Routes = [
     path : '', component: SearchBoxComponent,
   },
   {
+    path : 'history', component: SearchHistoryComponent,
+  },
+  {
     path : 'country/:countryId', component: CountryDetailsComponent
   },
   {

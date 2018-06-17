@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CountriesService } from '../countries.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-search-history',
   templateUrl: './search-history.component.html',
@@ -8,12 +9,18 @@ import { CountriesService } from '../countries.service';
 export class SearchHistoryComponent implements OnInit {
   history: any = [];
   constructor(
-    private countriesService: CountriesService
+    private router: Router,
+    private countriesService: CountriesService,
   ) { }
 
   ngOnInit() {
-    this.history = this.countriesService.getHistory();
+    this.history = this.countriesService.getHistory().reverse();
     console.log(this.history);
+  }
+
+  openCountry(NumericCode) {
+    const url = `country/${NumericCode}`;
+      this.router.navigate([url]);
   }
 
 }
