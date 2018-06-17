@@ -12,6 +12,11 @@ export class StorageService {
   }
 
   get(key) {
-    return JSON.parse(window.localStorage[key]);
+    const data = window.localStorage[key];
+    if (data) {
+      return JSON.parse(window.localStorage[key]);
+    } else {
+      return '';
+    }
   }
 }
