@@ -30,6 +30,9 @@ export class SearchBoxComponent implements OnInit {
 
   search(keyword) {
     // console.log(keyword);
+    if (keyword.length < 3) {
+      return this.options = [];
+    }
     this.country.search(keyword).subscribe(data => {
       this.options = data;
       // console.log(data);

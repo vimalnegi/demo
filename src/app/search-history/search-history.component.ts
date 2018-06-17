@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CountriesService } from '../countries.service';
 import { Router } from '@angular/router';
+// import { MatList } from '@angular/material';
 @Component({
   selector: 'app-search-history',
   templateUrl: './search-history.component.html',
