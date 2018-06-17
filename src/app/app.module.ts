@@ -12,7 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { CountriesService } from './countries.service';
-import { ApiService } from './api-service.service';
+import { ApiService } from './api-service';
 import { CountryDetailsComponent } from './country-details/country-details.component';
 import { SearchHistoryComponent } from './search-history/search-history.component';
 import { StorageService } from './storage.service';

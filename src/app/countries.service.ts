@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { ApiService } from "./api-service.service";
+import { ApiService } from "./api-service";
 import { map, count } from "rxjs/operators";
 import "rxjs/add/operator/map";
 import { Observable } from "rxjs/Observable";
@@ -18,7 +18,9 @@ export class CountriesService {
   constructor(
     private apiService: ApiService,
     private storage: StorageService,
-  ) {}
+  ) {
+    this.history = this.getHistory();
+  }
 
   insertIntoHistort(selectedCountry){
     const index = this.history.findIndex(country => country.NumericCode == selectedCountry.NumericCode);
