@@ -1,14 +1,23 @@
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <input type="text" placeholder="Pick one" aria-label="Number" matInput [matAutocomplete]="auto"
-    name="joke" #joke="ngModel"
-    [(ngModel)]="keyword" (ngModelChange)="onKeywordChange()">
-    <!-- <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto"> -->
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let option of options" (onSelectionChange)="onCountrySelect(option)" [value]="option.Name">
-        {{ option.Name }}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
-</form>
+<div class="grid-container">
+  <div class="grid-item">
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input type="text" placeholder="Pick one" aria-label="Number" matInput [matAutocomplete]="auto"
+        name="joke" #joke="ngModel"
+        [(ngModel)]="keyword" (ngModelChange)="onKeywordChange()">
+        <!-- <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto"> -->
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of options" (onSelectionChange)="onCountrySelect(option)" [value]="option.Name">
+            {{ option.Name }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+          </form>
+  </div>
+  <div class="grid-item">
+      <button (click)="goToSeachHistory()" mat-button color="primary">History</button>
+  </div>
+</div>
+
+
 <!-- <button mat-button (click)="goToSeachHistory()">History</button> -->

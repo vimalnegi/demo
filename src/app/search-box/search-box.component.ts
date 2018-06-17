@@ -48,6 +48,8 @@ export class SearchBoxComponent implements OnInit {
   }
 
   ngOnInit() {
+    const history = this.country.getHistory();
+    this.options = history.slice(0, history.length).reverse();
     this.country.getCountries().subscribe(data => {
       // console.log(data);
     });

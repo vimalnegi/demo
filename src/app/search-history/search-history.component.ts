@@ -15,7 +15,10 @@ export class SearchHistoryComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.history = this.countriesService.getHistory().reverse();
+    const history = this.countriesService.getHistory();
+    this.history = history.slice(0, history.length).reverse();
+
+    // this.history = this.countriesService.getHistory().slice(0, );
     console.log(this.history);
   }
 
