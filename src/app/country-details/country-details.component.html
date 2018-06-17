@@ -1,0 +1,21 @@
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar [ngStyle]="{'background-image':'url('+country.Flag+')'}" class="example-header-image"></div>
+    <mat-card-title>{{country.Name}}</mat-card-title>
+    <mat-card-subtitle>{{country.CurrencyName}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="country.Flag" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <div>
+      <p>
+        Longitude: {{country.Longitude}}
+      </p>
+    </div>
+    <div>
+        <p>
+          Longitude: {{country.Latitude}}
+        </p>
+      </div>
+  </mat-card-content>
+</mat-card>
